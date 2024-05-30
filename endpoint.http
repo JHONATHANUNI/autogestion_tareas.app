@@ -1,0 +1,44 @@
+###
+### Autogestión de Tareas - Endpoints
+###
+
+### Listar todas las tareas
+GET http://127.0.0.1:8000/api/tareas
+Content-Type: application/json
+
+### Consultar una tarea específica
+GET http://127.0.0.1:8000/api/tareas/1
+Content-Type: application/json
+
+### Crear una nueva tarea
+POST http://127.0.0.1:8000/api/tareas
+Content-Type: application/json
+
+{
+    "titulo": "Nueva tarea",
+    "descripcion": "Descripción de la nueva tarea",
+    "fecha_estimada_finalizacion": "2024-06-30",
+    "creador_tarea": "Juan Perez",
+    "id_empleado": 1,
+    "id_estado": 1,
+    "id_prioridad": 1,
+    "observaciones": "Observaciones de la nueva tarea"
+}
+
+### Actualizar datos de una tarea existente
+PUT http://127.0.0.1:8000/api/tareas/1
+Content-Type: application/json
+
+{
+    "titulo": "Tarea actualizada",
+    "descripcion": "Descripción actualizada de la tarea",
+    "fecha_estimada_finalizacion": "2024-07-15",
+    "id_empleado": 2,
+    "id_estado": 2,
+    "id_prioridad": 2,
+    "observaciones": "Observaciones actualizadas de la tarea"
+}
+
+### Eliminar una tarea existente
+DELETE http://127.0.0.1:8000/api/tareas/1
+Content-Type: application/json
