@@ -27,6 +27,6 @@ class Prioridad extends Model
      */
     public function tareas()
     {
-        return $this->hasMany(Tarea::class, 'IdPrioridad');
+        return $this->hasMany(Tarea::class, 'idPrioridad');
     }
 }

@@ -19,14 +19,14 @@ class Tarea extends Model
      * @var array
      */
     protected $fillable = [
-        'título',
-        'descripción',
+        'titulo',
+        'descripcion',
         'fechaEstimadaFinalizacion',
         'fechaFinalizacion',
         'creadorTarea',
-        'IdEmpleado',
-        'IdEstado',
-        'IdPrioridad',
+        'idEmpleado',
+        'idEstado',
+        'idPrioridad',
         'observaciones'
     ];
 
@@ -35,7 +35,7 @@ class Tarea extends Model
      */
     public function empleado()
     {
-        return $this->belongsTo(Empleado::class, 'IdEmpleado');
+        return $this->belongsTo(Empleado::class, 'idEmpleado');
     }
 
     /**
@@ -43,7 +43,7 @@ class Tarea extends Model
      */
     public function estado()
     {
-        return $this->belongsTo(Estado::class, 'IdEstado');
+        return $this->belongsTo(Estado::class, 'idEstado');
     }
 
     /**
@@ -51,6 +51,6 @@ class Tarea extends Model
      */
     public function prioridad()
     {
-        return $this->belongsTo(Prioridad::class, 'IdPrioridad');
+        return $this->belongsTo(Prioridad::class, 'idPrioridad');
     }
 }

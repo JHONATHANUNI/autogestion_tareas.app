@@ -27,6 +27,6 @@ class Estado extends Model
      */
     public function tareas()
     {
-        return $this->hasMany(Tarea::class, 'IdEstado');
+        return $this->hasMany(Tarea::class, 'idEstado');
     }
 }

@@ -1,6 +1,8 @@
-###
+### Verificados todos Utilizando Postman 
+
 ### Autogestión de Tareas - Endpoints
-###
+
+### 
 
 ### Listar todas las tareas
 GET http://127.0.0.1:8000/api/tareas

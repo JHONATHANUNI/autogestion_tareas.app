@@ -2,25 +2,19 @@
 
 /** @var \Laravel\Lumen\Routing\Router $router */
 
-/*
-|--------------------------------------------------------------------------
-| Application Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register all of the routes for an application.
-| It is a breeze. Simply tell Lumen the URIs it should respond to
-| and give it the Closure to call when that URI is requested.
-|
-*/
+$router->get('/test', function () {
+    return response()->json(['message' => 'Ruta de prueba funcionando']);
+});
 
 $router->get('/', function () use ($router) {
     return $router->app->version();
 });
+
 $router->group(['prefix' => 'api'], function () use ($router) {
     // Rutas para tareas
     $router->get('/tareas', 'TareaController@index');
     $router->get('/tareas/{id}', 'TareaController@show');
-    $router->post('/tareas', 'TareaController@store');
+    $router->post('/tareas', ['middleware' => 'validate.tarea', 'uses' => 'TareaController@store']);
     $router->put('/tareas/{id}', 'TareaController@update');
     $router->delete('/tareas/{id}', 'TareaController@destroy');
 
@@ -44,4 +38,7 @@ $router->group(['prefix' => 'api'], function () use ($router) {
     $router->post('/prioridades', 'PrioridadController@store');
     $router->put('/prioridades/{id}', 'PrioridadController@update');
     $router->delete('/prioridades/{id}', 'PrioridadController@destroy');
+
+    // Ruta para probar la conexión a la base de datos
+    $router->get('/test-db', 'DatabaseController@testDatabaseConnection');
 });

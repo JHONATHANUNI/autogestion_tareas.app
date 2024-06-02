@@ -27,6 +27,6 @@ class Empleado extends Model
      */
     public function tareas()
     {
-        return $this->hasMany(Tarea::class, 'IdEmpleado');
+        return $this->hasMany(Tarea::class, 'idEmpleado');
     }
 }
