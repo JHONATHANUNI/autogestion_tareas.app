@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class Prioridad extends Model
 {
@@ -18,15 +19,16 @@ class Prioridad extends Model
      *
      * @var array
      */
-    protected $fillable = [
-        'nombre'
-    ];
+    protected $fillable = ['nombre'];
 
     /**
      * Get the tasks for the priority.
+     *
+     * @return HasMany
      */
-    public function tareas()
+    public function tareas(): HasMany
     {
         return $this->hasMany(Tarea::class, 'idPrioridad');
     }
 }
+

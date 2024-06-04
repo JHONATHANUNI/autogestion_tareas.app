@@ -11,12 +11,18 @@ $router->get('/', function () use ($router) {
 });
 
 $router->group(['prefix' => 'api'], function () use ($router) {
+
     // Rutas para tareas
     $router->get('/tareas', 'TareaController@index');
+    $router->get('/tareas/agrupadas', 'TareaController@getTasksByStatus');
     $router->get('/tareas/{id}', 'TareaController@show');
     $router->post('/tareas', ['middleware' => 'validate.tarea', 'uses' => 'TareaController@store']);
     $router->put('/tareas/{id}', 'TareaController@update');
     $router->delete('/tareas/{id}', 'TareaController@destroy');
+    
+    $router->get('/api/tareas/agrupadas', 'TareasController@agrupadas');
+    $router->get('/api/tareas/{id:[0-9]+}', 'TareasController@show');
+
 
     // Rutas para empleados
     $router->get('/empleados', 'EmpleadoController@index');
@@ -42,3 +48,5 @@ $router->group(['prefix' => 'api'], function () use ($router) {
     // Ruta para probar la conexión a la base de datos
     $router->get('/test-db', 'DatabaseController@testDatabaseConnection');
 });
+
+// Jhonathan Uni sisa 55222510

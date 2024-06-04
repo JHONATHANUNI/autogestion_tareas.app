@@ -44,3 +44,23 @@ Content-Type: application/json
 ### Eliminar una tarea existente
 DELETE http://127.0.0.1:8000/api/tareas/1
 Content-Type: application/json
+
+### Filtrar tareas por título
+GET http://127.0.0.1:8000/api/tareas?titulo=Nueva%20tarea
+Content-Type: application/json
+
+### Filtrar tareas por fecha de inicio y fin
+GET http://127.0.0.1:8000/api/tareas?startDate=2024-06-01&endDate=2024-06-30
+Content-Type: application/json
+
+### Filtrar tareas por prioridad
+GET http://127.0.0.1:8000/api/tareas?idPrioridad=1
+Content-Type: application/json
+
+### Filtrar tareas por estado
+GET http://127.0.0.1:8000/api/tareas?idEstado=1
+Content-Type: application/json
+
+### Filtrar tareas por empleado responsable
+GET http://127.0.0.1:8000/api/tareas?idEmpleado=1
+Content-Type: application/json
